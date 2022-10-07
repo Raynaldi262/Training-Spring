@@ -1,10 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--<head th:replace="product/fragments/generics.html::header">-->
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <title>Index</title>
 </head>
 <body>
-  <h1>Duarrr</h1>
+<h1>PRODUCTS</h1>
+<div th:switch="${banks.size()}">
+    <div th:case="0">
+        <h2>Bank kosong</h2>
+<!--        <ul>-->
+<!--            <li><a href="/product/add">Add Product</a></li>-->
+<!--        </ul>-->
+    </div>
+    <div th:case="*">
+        <!-- Case * adalah yang selain dari null -->
+        <table border=1>
+            <tr>
+                <th>ID</th>
+                <th>Bank Code</th>
+                <th>Bank CBC</th>
+                <th>Bank Fiid</th>
+                <th>Bank Desc</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="p:${banks}">
+                <td>[[${p.bankId}]]</td>
+                <td>[[${p.bankCode}]]</td>
+                <td>[[${p.bankCbc}]]</td>
+                <td>[[${p.bankFiid}]]</td>
+                <td>[[${p.bankDesc}]]</td>
+                <td>
+<!--                    <a th:href="@{/product/edit/{id}(id=${p.id})}">Edit</a>-->
+<!--                    <a th:href="@{/product/del/{id}(id=${p.id})}">Delete</a>-->
+            </tr>
+<!--            <a href="/product/add">Add</a>-->
+        </table>
+    </div>
+    <div th:break></div>
+
+</div>
 </body>
 </html>

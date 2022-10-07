@@ -5,13 +5,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Id;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class BankDTO {
-    private String bank_id;
-    private String bank_code;
-    private String bank_cbc;
-    private String bank_desc;
+    @Id
+    private String bankId;
+    private String bankCode;
+    private String bankCbc;
+    private String bankFiid;
+    private String bankDesc;
 }

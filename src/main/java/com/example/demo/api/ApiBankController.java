@@ -26,4 +26,8 @@ public class ApiBankController {
         return srv.findByFiid(id);
     }
 
+    @GetMapping("/bank/{code}/{id}")
+    private List<Bank> getById(@PathVariable(name = "code") String code, @PathVariable(name = "id") String id){
+        return srv.findByCodeOrID(code, id);
+    }
 }

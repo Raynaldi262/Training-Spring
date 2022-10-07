@@ -24,7 +24,7 @@ public class BankServiceImpl implements BankService {
     }
 
     @Override
-    public Bank findByBankCode(String code) {
-        return repo.findById(code).get();
+    public List<Bank> findByCodeOrID(String code, String id) {
+        return repo.findByBankCodeOrID(code, id);
     }
 }

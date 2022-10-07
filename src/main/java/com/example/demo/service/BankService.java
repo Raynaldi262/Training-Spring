@@ -7,5 +7,5 @@ import java.util.List;
 public interface BankService {
     List<Bank> banks();
     Bank findByFiid(String id);
-    Bank findByBankCode(String code);
+    List<Bank> findByCodeOrID(String code, String id);
 }
